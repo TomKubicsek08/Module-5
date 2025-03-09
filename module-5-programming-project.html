@@ -1,81 +1,90 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>CMPS 162: Module 5 Programming Project</title>
-<style>* { font-family: monospace; }</style>
-<script>
+    <meta charset="utf-8">
+    <title>CMPS 162: Module 5 Programming Project</title>
+    <style>
+        * { font-family: monospace; }
+        
+        /* Styled text for Pirates statement */
+        .large-text {
+            font-size: 8em;
+        }
+        
+        .medium-text {
+            font-size: 5em;
+        }
+    </style>
+    <script>
+        console.log("Events");
 
-//--------//
-// Events //
-//--------//
-console.log("Events");
+        // Function to display a Hello message when the link is clicked
+        function displayHello() {
+            alert("Hello! Welcome to the event handling example.");
+        }
 
-// 1. Change the link (the <a> tag) in the HTML body below such that a hello
-//    message is displayed on a click event.
+        console.log("Input Fields");
 
+        // Function to change text color to blue when typing
+        function changeTextColor() {
+            document.getElementById("myTextField").style.color = "blue";
+        }
 
+        console.log("Images");
 
-//--------------//
-// Input Fields //
-//--------------//
-console.log("Input Fields");
-<input type="text" id="myTextField" value="Type here" oninput="changeBackgroundColor()">
+        // Function to make an image disappear when clicked
+        function hideImage() {
+            document.getElementById("disappearImage").style.display = "none";
+        }
 
-// 1. Change the background color to red for the input text field (the <input>
-//    tag) in the HTML body when obtaining the focus and change it back to
-//    white when the focus is lost.
-  
+        console.log("Styles");
 
-// 2. Change the background color to the original input background color
+        // Function to swap div background colors
+        function swapColors() {
+            let div1 = document.getElementById("div1");
+            let div2 = document.getElementById("div2");
 
-  
-// 3. Change the text from the default font color to blue
+            let tempColor = div1.style.backgroundColor;
+            div1.style.backgroundColor = div2.style.backgroundColor;
+            div2.style.backgroundColor = tempColor;
+        }
 
-
-
-//--------//
-// Images //
-//--------//
-console.log("Images");
-
-// 1. Add an image to the HTML body (use the <img> tag). Make it disappear when
-//    someone clicks on it.
-
-// 2. Mouse over an object having an existing image and by mousing over another image appears in its place
-//
-
-
-//--------//
-// Styles //
-//--------//
-console.log("Styles");
-
-// 1. Use the style to increase the text "The Pirates will advance to the World Series in 2025" 
-// Use a paragraph style code and increase the text to 8 em
-
-// 2. Use the style to decrease the text "The Pirates will advance to the World Series in 2025" 
-// Use a paragraph style code and increase the text to 5 em
-  
-
-
-
-</script>
+    </script>
 </head>
 <body>
-  See console!<br><br>
-  <a>Click here for a greeting!</a><br><br>
-  <input type="text"><br><br>
-  <p>Hello World!</p>
-  <div id="div1"
-       style="background-color:yellow;"
-       onclick="swapColors();">
-    Hello
-  </div>
-  <div id="div2"
-       style="background-color:green;"
-       onclick="swapColors();">
-    World
-  </div>
+
+    <h1>See console for logs!</h1>
+
+    <!-- Link that displays a hello message on click -->
+    <a href="#" onclick="displayHello()">Click here for a greeting!</a><br><br>
+
+    <!-- Input field with event handlers for focus, blur, and input changes -->
+    <input type="text" id="myTextField" value="Type here" 
+           onfocus="this.style.backgroundColor='red'" 
+           onblur="this.style.backgroundColor='white'" 
+           oninput="changeTextColor()"><br><br>
+
+    <!-- Image that disappears when clicked -->
+    <img id="disappearImage" src="image.jpg" alt="Click to hide" 
+         onclick="hideImage()" style="width:200px; height:auto;"><br><br>
+
+    <!-- Image swap on hover -->
+    <img id="swapImage" src="image1.jpg" 
+         onmouseover="this.src='image2.jpg'" 
+         onmouseout="this.src='image1.jpg'" 
+         style="width:200px; height:auto;"><br><br>
+
+    <!-- Styled text with different font sizes -->
+    <p class="large-text">The Pirates will advance to the World Series in 2025</p>
+    <p class="medium-text">The Pirates will advance to the World Series in 2025</p>
+
+    <!-- Two divs that swap background colors when clicked -->
+    <div id="div1" style="background-color:yellow; padding:20px; cursor:pointer;" onclick="swapColors();">
+        Hello
+    </div>
+    <div id="div2" style="background-color:green; padding:20px; cursor:pointer;" onclick="swapColors();">
+        World
+    </div>
+
 </body>
 </html>
